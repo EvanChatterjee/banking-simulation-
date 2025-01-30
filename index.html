@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My JavaScript Banking Simulation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            color: #4CAF50;
+        }
+        h2 {
+            color: #555;
+        }
+        .code-block {
+            background-color: #2e2e2e;
+            color: #f8f8f2;
+            padding: 20px;
+            border-radius: 5px;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        .code-header {
+            font-size: 1.3em;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1em;
+        }
+        .btn:hover {
+            background-color: #45a049;
+        }
+        .input-field {
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 1.1em;
+            width: 100%;
+            box-sizing: border-box;
+            border-radius: 5px;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            color: #999;
+        }
+        .italic {
+            font-style: italic;
+        }
+        .currency-select {
+            padding: 10px;
+            font-size: 1.1em;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Banking Simulation</h1>
+        <p class="italic">Made by Evan</p>
+
+        <h2>Initial Setup</h2>
+        <label for="initialBalance">Enter Initial Balance:</label>
+        <input type="number" id="initialBalance" class="input-field" value="1000">
+        
+        <label for="currency">Select Currency:</label>
+        <select id="currency" class="currency-select">
+            <option value="USD">USD ($)</option>
+            <option value="INR">INR (₹)</option>
+        </select>
+        
+        <button class="btn" onclick="setBalance()">Set Balance</button>
+
+        <h2>Bank Account</h2>
+        <p id="accountInfo">Current Balance: $1000</p>
+
+        <h3>Deposit</h3>
+        <label for="depositAmount">Enter Deposit Amount:</label>
+        <input type="number" id="depositAmount" class="input-field">
+        <button class="btn" onclick="deposit()">Deposit</button>
+
+        <h3>Withdraw</h3>
+        <label for="withdrawAmount">Enter Withdraw Amount:</label>
+        <input type="number" id="withdrawAmount" class="input-field">
+        <button class="btn" onclick="withdraw()">Withdraw</button>
+
+        <h2>JavaScript Code:</h2>
+        <div class="code-block">
+            <div class="code-header">Banking System Simulation</div>
+            <pre>
+const account = {
+    balance: 1000,  // Initial balance
+    currency: 'USD', // Default currency (USD)
+
+    // Set the balance (initial balance input by user)
+    setBalance: function(newBalance, currency) {
+        this.balance = newBalance;
+        this.currency = currency;
+        updateBalanceDisplay();
+    },
+
+    // Deposit funds
+    deposit: function(amount) {
+        this.balance += amount;
+        updateBalanceDisplay();
+    },
+
+    // Withdraw funds
+    withdraw: function(amount) {
+        if (this.balance >= amount) {
+            this.balance -= amount;
+        } else {
+            alert('Insufficient funds!');
+        }
+        updateBalanceDisplay();
+    }
+};
+
+// Update the balance display on the page
+function updateBalanceDisplay() {
+    const currencySymbol = account.currency === 'USD' ? '$' : '₹';
+    document.getElementById('accountInfo').innerText = 'Current Balance: ' + currencySymbol + account.balance;
+}
+
+// Functions for setting balance, depositing, and withdrawing
+function setBalance() {
+    const initialBalance = document.getElementById('initialBalance').value;
+    const selectedCurrency = document.getElementById('currency').value;
+    account.setBalance(Number(initialBalance), selectedCurrency);
+}
+
+function deposit() {
+    const depositAmount = document.getElementById('depositAmount').value;
+    account.deposit(Number(depositAmount));
+}
+
+function withdraw() {
+    const withdrawAmount = document.getElementById('withdrawAmount').value;
+    account.withdraw(Number(withdrawAmount));
+}
+            </pre>
+        </div>
+
+        <div class="footer">
+            <p>Made by <span class="italic">Evan</span></p>
+        </div>
+    </div>
+
+    <script>
+        // Initial account setup
+        const account = {
+            balance: 1000,  // Default initial balance
+            currency: 'USD', // Default currency (USD)
+
+            // Set the balance (initial balance input by user)
+            setBalance: function(newBalance, currency) {
+                this.balance = newBalance;
+                this.currency = currency;
+                updateBalanceDisplay();
+            },
+
+            // Deposit funds
+            deposit: function(amount) {
+                this.balance += amount;
+                updateBalanceDisplay();
+            },
+
+            // Withdraw funds
+            withdraw: function(amount) {
+                if (this.balance >= amount) {
+                    this.balance -= amount;
+                } else {
+                    alert('Insufficient funds!');
+                }
+                updateBalanceDisplay();
+            }
+        };
+
+        // Update the balance display on the page
+        function updateBalanceDisplay() {
+            const currencySymbol = account.currency === 'USD' ? '$' : '₹';
+            document.getElementById('accountInfo').innerText = 'Current Balance: ' + currencySymbol + account.balance;
+        }
+
+        // Functions for setting balance, depositing, and withdrawing
+        function setBalance() {
+            const initialBalance = document.getElementById('initialBalance').value;
+            const selectedCurrency = document.getElementById('currency').value;
+            account.setBalance(Number(initialBalance), selectedCurrency);
+        }
+
+        function deposit() {
+            const depositAmount = document.getElementById('depositAmount').value;
+            account.deposit(Number(depositAmount));
+        }
+
+        function withdraw() {
+            const withdrawAmount = document.getElementById('withdrawAmount').value;
+            account.withdraw(Number(withdrawAmount));
+        }
+    </script>
+</body>
+</html>
+
+
+
