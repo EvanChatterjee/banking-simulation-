@@ -1,13 +1,5 @@
  (`Interest Applied: ₹${interest.toFixed(2)}\nNew Balance: ₹${balance.toFixed(2)}`);
-    } else {
-        alert("Please enter valid interest rate and time period.");
-    }
-}
-
-// Function to update balance display
-function updateBalanceDisplay() {
-    document.getElementById("balanceDisplay").innerText = `Balance: ₹${balance.toFixed(2)}`;
-}
+     = `Balance: ₹${balance.toFixed(2)}`;
 
 // Adding buttons and input fields dynamically
 document.write(`
