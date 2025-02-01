@@ -1,8 +1,6 @@
  (`Interest Applied: ₹${interest.toFixed(2)}\nNew Balance: ₹${balance.toFixed(2)}`);
      = `Balance: ₹${balance.toFixed(2)}`;
 
-// Adding buttons and input fields dynamically
-document.write(`
     <div>
         <h2>Banking Simulator</h2>
         <p id="balanceDisplay">Balance: ₹0.00</p>
