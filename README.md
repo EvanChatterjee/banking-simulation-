@@ -1,5 +1,4 @@
- `Interest Applied: ₹${interest.toFixed(2)}\nNew Balance: ₹${balance.toFixed(2)}`);
-     = `Balance: ₹${balance.toFixed(2)}`;
+
 
     <div>
         <h2>Banking Simulator</h2>
