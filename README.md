@@ -18,4 +18,4 @@
         <button onclick="applyInterest('simple')">Apply Simple Interest</button>
         <button onclick="applyInterest('compound')">Apply Compound Interest</button>
     </div>
-`);
+
