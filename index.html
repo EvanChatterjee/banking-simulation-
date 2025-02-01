@@ -107,58 +107,7 @@
         <div class="code-block">
             <div class="code-header">Banking System Simulation</div>
             <pre>
-const account = {
-    balance: 1000,  // Initial balance
-    currency: 'USD', // Default currency (USD)
 
-    // Set the balance (initial balance input by user)
-    setBalance: function(newBalance, currency) {
-        this.balance = newBalance;
-        this.currency = currency;
-        updateBalanceDisplay();
-    },
-
-    // Deposit funds
-    deposit: function(amount) {
-        this.balance += amount;
-        updateBalanceDisplay();
-    },
-
-    // Withdraw funds
-    withdraw: function(amount) {
-        if (this.balance >= amount) {
-            this.balance -= amount;
-        } else {
-            alert('Insufficient funds!');
-        }
-        updateBalanceDisplay();
-    }
-};
-
-// Update the balance display on the page
-function updateBalanceDisplay() {
-    const currencySymbol = account.currency === 'USD' ? '$' : '₹';
-    document.getElementById('accountInfo').innerText = 'Current Balance: ' + currencySymbol + account.balance;
-}
-
-// Functions for setting balance, depositing, and withdrawing
-function setBalance() {
-    const initialBalance = document.getElementById('initialBalance').value;
-    const selectedCurrency = document.getElementById('currency').value;
-    account.setBalance(Number(initialBalance), selectedCurrency);
-}
-
-function deposit() {
-    const depositAmount = document.getElementById('depositAmount').value;
-    account.deposit(Number(depositAmount));
-}
-
-function withdraw() {
-    const withdrawAmount = document.getElementById('withdrawAmount').value;
-    account.withdraw(Number(withdrawAmount));
-}
-            </pre>
-        </div>
 
         <div class="footer">
             <p>Made by <span class="italic">Evan</span></p>
